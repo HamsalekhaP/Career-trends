@@ -1,4 +1,6 @@
-# idyll-post
+# Where it pays to attend college?
+
+## idyll-post
 
 Template for a single Idyll post.
 
