@@ -3,11 +3,13 @@
 [data name:"allschool" source:"salaries-by-college-type-location-interpolated-nodupl.csv"  /]
 
 [var name:"coordinates" /]
+
 [DropdownComponent listSchool:allschool returnCoordinates: coordinates/]
+
 Coordinates: [Display value:coordinates format:"d" /]
 
+// [MapComponent  focusCoordinate: coordinates /]
 
-[MapComponent  focusCoordinate: coordinates /]
 [br/]
 
 
