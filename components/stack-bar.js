@@ -10,19 +10,19 @@ class StackBar extends D3Component {
 
     initialize(node, props){
         const csvData = 
-`Region,starting_median_salaries,mid_career_median_salaries
-California,51032.142857142855,93132.14285714286
-Midwestern,44225.35211267605,78180.28169014085
-Northeastern,48496.0,91352.0
-Southern,44521.51898734177,79505.06329113925
-Western,44414.28571428572,78200.0`;
+`Region,Starting median salaries,Mid-career median salaries,Mid-career 90th percentile salaries
+California,51032.142857142855,93132.14285714286,167909.090909
+Midwestern,44225.35211267605,78180.28169014085,147689.062500
+Northeastern,48496.0,91352.0,181926.829268
+Southern,44521.51898734177,79505.06329113925,152769.014085
+Western,44414.28571428572,78200.0,143823.529412`;
+
                 
         var csv = d3.csvParse(csvData, d3.autoType);
 
         var subgroups = csv.columns.slice(1);
         
-        // const colors = ["pink", "green", "orange"];
-        const color = d3.scaleOrdinal(d3.schemeSet2).domain(d3.range(subgroups.length))
+        const colors = ["pink", "green", "orange"];
         
         var color = (i) => {
             return colors[i];
@@ -57,7 +57,9 @@ Western,44414.28571428572,78200.0`;
         const stackedMax = d3.max(data, y => d3.max(y, d => d[1]));
         // const groupedMax = d3.max(data, row => d3.max(subgroups.map(col => row[col])));
         const gMax = d3.max(data, row => d3.max(row));
-        const groupedMax = gMax[1] - gMax[0];
+        
+        console.log("gmax: ",gMax);
+        const groupedMax = 185000;
 
         var groups = csv.map(d => d[groupName]);
 
