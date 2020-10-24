@@ -1,6 +1,3 @@
 
 /* Put your custom styles here */
-
-svg {
-  max-width: 300px;
-}
+.bar { fill: steelblue; }
