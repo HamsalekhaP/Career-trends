@@ -7,9 +7,8 @@ import ReactMapGL from 'react-map-gl';
 class DropdownComponent extends React.Component {
   constructor(props) {
     super(props);
-    console.log("Hello");
-    this.options = props.listSchool;
     
+    this.options = props.listSchool;
     this.state = this.options[0];
     
     this.props.updateProps({
@@ -22,8 +21,8 @@ class DropdownComponent extends React.Component {
     this.viewport = {
       width: 400,
       height: 400,
-      latitude: this.props.returnCoordinates[0],
-      longitude: this.props.returnCoordinates[1],
+      latitude: this.state['Latitude'],
+      longitude: this.state['Longitude'],
       zoom: 4,
       mapboxApiAccessToken:"pk.eyJ1IjoibWF0aGlzb25pYW4iLCJhIjoiY2l5bTA5aWlnMDAwMDN1cGZ6Y3d4dGl6MSJ9.JZaRAfZOZfAnU2EAuybfsg"
     };
