@@ -10,9 +10,13 @@
   "dependencies": {
     "d3": "^4.0.0",
     "idyll": "^2.0.0",
-    "idyll-d3-component": "^2.0.0"
+    "idyll-d3-component": "^2.0.0",
+    "react-map-gl": "^5.2.9"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0"
+  },
+  "idyll":{
+    "layout":"centered"
   }
 }

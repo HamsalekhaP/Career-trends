@@ -1,4 +1,19 @@
-# Where does it pay to go to College
+# Where does it pay to go to College?
+
+[data name:"allschool" source:"salaries-by-college-type-location-interpolated-nodupl.csv"  /]
+
+[var name:"coordinates" /]
+
+[DropdownComponent listSchool:allschool returnCoordinates: coordinates/]
+
+Coordinates: [Display value:coordinates format:"d" /]
+
+// [MapComponent  focusCoordinate: coordinates /]
+
+[br/]
+
+
+
 
 [data name:"region" source:"region.csv" /]
 
