@@ -1,3 +1,18 @@
 # Where does it pay to go to College
 
+[data name:"region" source:"region.csv" /]
+
+## Region - Median Starting Salaries
+
+// [Bar /]
+
+[StackBar /]
+
+// [var name:"somedata" value:`[
+//     {x: 0, y:0.5},
+//     {x: 1, y:2.5},
+//     {x: 2, y:7.5},
+// ]`/]
+
+// [Chart type:"line" data:somedata domain:`[0,2]` range:`[0,8]` /]
 
