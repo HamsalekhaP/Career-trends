@@ -1,8 +1,8 @@
-# Where it pays to attend college?
+# Where It Pays To Attend College?
 
-## idyll-post
+A good college is synonymous with quality education and holistic development in students. Some key factors that influence aspiring college students in choosing a college are reputation of the college, availability of desired program, academic quality, job opportunities, career outcome, increase in earning power, etc. An interesting question to ask is if the differences in college, major and region are statistically significant. 
+In this study, we aim to analyse a dataset curated by Wall Street Journal based on a survey conducted by PayScale Inc. and present an interactive narrative visualization. It consists of a comprehensive list of colleges and universities in the US with salaries at different stages of career for different undergraduate majors, colleges, college types and regions. We hope to identify trends in the dataset pertaining to salaries in different majors, colleges and regions.
 
-Template for a single Idyll post.
 
 ## Installation
 
@@ -11,16 +11,13 @@ Template for a single Idyll post.
 
 ## Developing a post locally
 
-Run `idyll`.
+Run `npm start`.
 
 ## Building a post for production
 
-Run `idyll build`. The output will appear in the top-level `build` folder. To change the output location, change the `output` option in `package.json`.
+Run `npm build`. The output will appear in the top-level `build` folder. To change the output location, change the `output` option in `package.json`.
 
-## Deploying
-
-Make sure your post has been built, then deploy the docs folder via any static hosting service.
 
 ## Dependencies
 
-You can install custom dependencies by running `npm install <package-name> --save`. Note that any collaborators will also need download the package locally by running `npm install` after pulling the changes.
+You can install custom dependencies by running `npm install <package-name> --save`.
