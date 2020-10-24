@@ -1,14 +1,16 @@
-# Where does it pay to go to College
+# Where does it pay to go to College?
 
-# map here
-[CustomComponent /]
+[data name:"allschool" source:"salaries-by-college-type-location-interpolated-nodupl.csv"  /]
 
-[ReactMapGL
-  width:400
-  height:400
-  latitude:47.6062
-  longitude:-122.3321
-  zoom:8
-  mapboxApiAccessToken:"pk.eyJ1IjoibWF0aGlzb25pYW4iLCJhIjoiY2l5bTA5aWlnMDAwMDN1cGZ6Y3d4dGl6MSJ9.JZaRAfZOZfAnU2EAuybfsg"
- /]
- # please
+[var name:"coordinates" /]
+[DropdownComponent listSchool:allschool returnCoordinates: coordinates/]
+Coordinates: [Display value:coordinates format:"d" /]
+
+
+[MapComponent  focusCoordinate: coordinates /]
+[br/]
+
+
+
+
+

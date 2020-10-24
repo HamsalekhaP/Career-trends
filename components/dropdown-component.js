@@ -5,35 +5,40 @@ import {Component} from 'react';
 class DropdownComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'coconut'};
-
+    this.options=props.listSchool    
+    this.state = this.options[0]
+    this.props.updateProps({
+      returnCoordinates: [this.state['Latitude'],this.state['Longitude']]
+    })
+    // console.log('state',this.state)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({value: event.target.value});
+    var selectedSchoolObj = this.options.filter(function(item) {
+      return item['School Name'] == event.target.value
+    })    
+    this.props.updateProps({
+      returnCoordinates: [selectedSchoolObj[0]['Latitude'],selectedSchoolObj[0]['Longitude']]
+    })
+    
   }
 
   handleSubmit(event) {
-    alert('Your favorite flavor is: ' + this.state.value);
     event.preventDefault();
   }
 
   render() {
+    let modified_options = this.options.map(d => <option key={d['Index']}>{d['School Name']}</option>)
     return (
-      <form onSubmit={this.handleSubmit}>
         <label>
-          Pick your favorite flavor:
+          Pick a school:
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
+            {modified_options}
           </select>
         </label>
-        <input type="submit" value="Submit" />
-      </form>
     );
   }
 }
