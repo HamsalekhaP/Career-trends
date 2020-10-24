@@ -10,47 +10,41 @@ class StackBar extends D3Component {
 
     initialize(node, props){
         const csvData = 
-`Justice,Majority,Concurrence,Dissent
-Thomas,8,14,6
-Gorsuch,8,3,11
-Breyer,8,2,10
-Alito,7,6,7
-Sotomayor,7,3,9
-Ginsburg,6,2,6
-Kavanaugh,7,4,3
-Kagan,8,1,3
-Roberts,7,2,3`;
+`Region,starting_median_salaries,mid_career_median_salaries
+California,51032.142857142855,93132.14285714286
+Midwestern,44225.35211267605,78180.28169014085
+Northeastern,48496.0,91352.0
+Southern,44521.51898734177,79505.06329113925
+Western,44414.28571428572,78200.0`;
                 
         var csv = d3.csvParse(csvData, d3.autoType);
 
         var subgroups = csv.columns.slice(1);
         
-        const colors = ["pink", "green", "orange"];
+        // const colors = ["pink", "green", "orange"];
+        const color = d3.scaleOrdinal(d3.schemeSet2).domain(d3.range(subgroups.length))
         
         var color = (i) => {
             return colors[i];
         };
         
-        console.log(d3.range(subgroups.length));
+        // console.log(d3.range(subgroups.length));
 
         const legendBoxSize = 15;
         const legendPadding = 5;
-        
+                
         const margin = ({
             top: 20 + colors.length * (legendBoxSize + legendPadding), 
             right: 20, 
-            bottom: 30, 
-            left: 50
+            bottom: 20, 
+            left: 70
         });
         
 
-        var width = 1200;
+        var width = 600;
         var height = 500;
         
-        // const url = "http://localhost:3000/data/region-mean.csv";
-        const url = "http://localhost:3000/data/stackbar.csv";
-
-        const groupName = "Justice";
+        const groupName = "Region";
 
         var svg = d3.select(node).append("svg")
                 .attr("width", width*2)
@@ -61,18 +55,22 @@ Roberts,7,2,3`;
                 .map((data, i) => data.map(([y0, y1]) => [y0, y1, i])) // add an extra array element for the subgroup index
         
         const stackedMax = d3.max(data, y => d3.max(y, d => d[1]));
-        const groupedMax = d3.max(data, row => d3.max(subgroups.map(col => row[col])));
+        // const groupedMax = d3.max(data, row => d3.max(subgroups.map(col => row[col])));
+        const gMax = d3.max(data, row => d3.max(row));
+        const groupedMax = gMax[1] - gMax[0];
 
         var groups = csv.map(d => d[groupName]);
 
         const x = d3.scaleBand()
                     .domain(d3.range(groups.length))
                     .rangeRound([margin.left, width - margin.right])
-                    .padding(0.15);
+                    .padding(0.3);
 
-        console.log([0, stackedMax], [height - margin.bottom, margin.top]);
+        console.log([0, groupedMax]);
+
+
         var y = d3.scaleLinear()
-                    .domain([0, stackedMax])
+                    .domain([0, groupedMax])
                     .range([height - margin.bottom, margin.top]);
 
         const subgroup = svg.selectAll(".subgroup")
@@ -92,11 +90,16 @@ Roberts,7,2,3`;
 
         const rect = subgroup.selectAll("rect")
                 .data(d => d)
-                .enter().append("rect")
-                    .attr("x", (d, i) => x(i))
-                    .attr("y", d => y(d[1]))
-                    .attr("width", x.bandwidth())
-                    .attr("height", d => y(d[0]) - y(d[1]));
+                .enter().append("rect");
+                    // .attr("x", (d, i) => x(i))
+                    // .attr("y", d => y(d[1]))
+                    // .attr("width", x.bandwidth())
+                    // .attr("height", d => y(d[0]) - y(d[1]));
+
+        rect.attr("x", (d, i) => x(i) + (x.bandwidth() / subgroups.length) * d[2])
+                    .attr("width", x.bandwidth() / subgroups.length)
+                    .attr("y", d => y(d[1] - d[0]))
+                    .attr("height", d => y(0) - y(d[1] - d[0]));
 
         subgroup.on("mouseenter", function() {
             svg
