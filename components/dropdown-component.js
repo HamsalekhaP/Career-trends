@@ -19,8 +19,8 @@ class DropdownComponent extends React.Component {
     })
     
     this.viewport = {
-      width: 400,
-      height: 400,
+      width: 600,
+      height: 600,
       latitude: this.state['Latitude'],
       longitude: this.state['Longitude'],
       zoom: 4,
@@ -36,7 +36,6 @@ class DropdownComponent extends React.Component {
     var selectedSchoolObj = this.options.filter(function(item) {
       return item['School Name'] == event.target.value
     });
-    console.log(selectedSchoolObj);
     var latitude = selectedSchoolObj[0]['Latitude'];
     var logitude = selectedSchoolObj[0]['Longitude'];
 
@@ -56,8 +55,7 @@ class DropdownComponent extends React.Component {
     return (
       <div>
         <label>
-          Pick a school:
-          <select value={this.state.value} onChange={this.handleChange}>
+          Pick a school and explore the location around! <select className='drop-down-style' value={this.state.value} onChange={this.handleChange}>
             {modified_options}
           </select>
         </label>

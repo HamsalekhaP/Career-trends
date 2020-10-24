@@ -16,7 +16,9 @@
   "devDependencies": {
     "gh-pages": "^0.12.0"
   },
-  "idyll":{
-    "layout":"centered"
+  "idyll": {
+    "theme": "github",
+    "layout": "blog",
+    "css": "styles.css"
   }
 }
