@@ -22,9 +22,11 @@ First, they want to locate the University and explore the location around it. So
 [br/]
 
 Then, comes the major factor, how rewarding is the University in terms of earning power. 
-First they identify 5 major regions in the US and observe the salary distributions. 
+First, they identify 5 major regions in the US and observe the mean salary values. 
 
 [data name:"region" source:"region.csv" /]
+
+On visualizing the mean salaries in each region for each category (starting, mid-career and mid-career 90th percentile), they notice that the California and Northeastern regions are more rewaring in every category. (Hover over any bar of a certain category to view all that specific category values exclusively.
 
 ## Region - Median Starting Salaries
 
@@ -32,23 +34,14 @@ First they identify 5 major regions in the US and observe the salary distributio
 
 As showed in the figure, California and Northeastern region have the highest starting salaries. 
 
-### Add better transition here
 Since all of them have different career goals, they want to know how rewarding each profession is going to be. 
 
 ## Major - Starting Median Salaries
 [hBar /]
 
 
-
-
 All of them disperse, convinced with their choices. Well, data is power afterall!
 
-
-// [var name:"somedata" value:`[
-//     {x: 0, y:0.5},
-//     {x: 1, y:2.5},
-//     {x: 2, y:7.5},
-// ]`/]
 
 // [Chart type:"line" data:somedata domain:`[0,2]` range:`[0,8]` /]
 
