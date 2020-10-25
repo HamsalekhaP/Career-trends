@@ -15,7 +15,6 @@ First, they want to locate the University and explore the location around it. So
 [data name:"allschool" source:"salaries-by-college-type-location-interpolated-nodupl.csv"  /]
 
 [var name:"coordinates" /]
-## fdsfsdfassssss
 [DropdownComponent listSchool:allschool returnCoordinates: coordinates/]
 
 // Coordinates: [Display value:coordinates format:"d" /]
