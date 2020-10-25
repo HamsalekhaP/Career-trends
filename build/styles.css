@@ -1074,4 +1074,7 @@ hr {
     word-wrap: break-word;
     width: 80%;
     overflow: hidden;
+    color: blue;
+    line-height: 1.2;
+    font-weight: bolder;
 }

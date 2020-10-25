@@ -1,7 +1,6 @@
 
 const React = require('react');
 import {Component} from 'react';
-import {MapComponent} from './map-component';
 import ReactMapGL,{Marker} from 'react-map-gl';
 
 class DropdownComponent extends React.Component {
@@ -28,9 +27,6 @@ class DropdownComponent extends React.Component {
       return item['School Name'] == event.target.value
     });
     this.setState({value:selectedSchoolObj[0]});
-    // this.state = selectedSchoolObj[0]
-    // this.col=selectedSchoolObj[0]['School Name']
-    // console.log('after set',this.state)
     var latitude = selectedSchoolObj[0]['Latitude'];
     var logitude = selectedSchoolObj[0]['Longitude'];
 
@@ -54,7 +50,8 @@ class DropdownComponent extends React.Component {
         <ReactMapGL
           {...this.viewport} 
           onViewportChange={(viewport) => this.setState({viewport})}>
-          <Marker latitude={this.viewport.latitude} longitude={this.viewport.longitude} offsetTop={-10}>
+          <Marker latitude={this.viewport.latitude} longitude={this.viewport.longitude}>
+          <img src="./static/images/pop.svg" width='20' height='20'/>
           <div className='label-wrap'>{this.state.value['School Name']}</div>
         </Marker>
           </ReactMapGL>
