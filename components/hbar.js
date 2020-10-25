@@ -5,8 +5,7 @@ class hBar extends D3Component {
     initialize(node, props) {
         
         // TODO: Pass this as a argument from outside?
-        const url = "https://raw.githubusercontent.com/HamsalekhaP/Career-trends/master/data/degree.csv?token=APA47FYA3OPJGOQIRRM2LKC7STQ6G";
-        // Previous error if not using proper url: Error: {TypeError: Failed to execute 'fetch' on 'Window': Failed to parse URL from //localhost:80./data/region.csv: "    at module.exports.ClientRequest._onFinish (http://localhost:3000/index.js:70635:10)"}
+        const url = "https://raw.githubusercontent.com/LicCheng/cs639-data/main/degree.csv";
         var data = d3.csv(url, function(data) {
             console.log(data);
             
