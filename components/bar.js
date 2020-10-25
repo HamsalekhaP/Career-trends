@@ -14,7 +14,7 @@ class Bar extends D3Component {
       // set the ranges
       var x = d3.scaleBand()
         .range([0, width])
-        .padding(0.5);
+        .padding(0.1);
 
       var y = d3.scaleLinear()
         .range([height, 0]);
@@ -30,7 +30,7 @@ class Bar extends D3Component {
             .attr("transform", 
             "translate(" + margin.left + "," + 0 + ")");
 
-      var url = "http://localhost:3000/data/region-mean.csv";
+      var url = "http://localhost:3000/data/degree.csv";
       // Previous error if not using proper url: Error: {TypeError: Failed to execute 'fetch' on 'Window': Failed to parse URL from //localhost:80./data/region.csv: "    at module.exports.ClientRequest._onFinish (http://localhost:3000/index.js:70635:10)"}
       d3.csv(url, function(error, data) {
 
@@ -40,10 +40,10 @@ class Bar extends D3Component {
         
         // Scale the range of the data in the domains
         x.domain(data.map(function(d) { 
-          return d["Region"];
+          return d["Major"];
         }));
         y.domain([0, d3.max(data, function(d) { 
-          return d["start_mean"]; 
+          return d["Starting-Salary"]; 
         })]);
 
         // append the rectangles for the bar chart
@@ -51,19 +51,19 @@ class Bar extends D3Component {
           .data(data).enter().append("rect")
           .attr("class", "bar")
           .attr("x", function(d) { 
-            return x(d.Region);
+            return x(d.Major);
           })
           .attr("width", x.bandwidth())
 
           .attr("y", function(d) { 
-            var t = d["start_mean"];
+            var t = d["Starting-Salary"];
             if (isNaN(t) || t == "NaN"){
               return 0;
             }
             return y(t); 
           })
           .attr("height", function(d) { 
-            var t = d["start_mean"];
+            var t = d["Starting-Salary"];
             if (isNaN(t) || t == "NaN"){
               t = 0;
             }
