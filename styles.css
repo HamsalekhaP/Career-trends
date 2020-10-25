@@ -1,3 +1,9 @@
 .drop-down-style{
 	margin: 2em 0em;
 }
+
+.label-wrap{
+    word-wrap: break-word;
+    width: 80%;
+    overflow: hidden;
+}

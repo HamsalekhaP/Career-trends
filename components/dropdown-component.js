@@ -2,27 +2,19 @@
 const React = require('react');
 import {Component} from 'react';
 import {MapComponent} from './map-component';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL,{Marker} from 'react-map-gl';
 
 class DropdownComponent extends React.Component {
   constructor(props) {
     super(props);
     
     this.options = props.listSchool;
-    this.state = this.options[0];
-    
-    this.props.updateProps({
-      returnCoordinates: [
-        this.state['Latitude'],
-        this.state['Longitude']
-      ]
-    })
-    
+    this.state = {value: this.options[0]}
     this.viewport = {
       width: 600,
       height: 600,
-      latitude: this.state['Latitude'],
-      longitude: this.state['Longitude'],
+      latitude: this.state.value['Latitude'],
+      longitude: this.state.value['Longitude'],
       zoom: 4,
       mapboxApiAccessToken:"pk.eyJ1IjoibWF0aGlzb25pYW4iLCJhIjoiY2l5bTA5aWlnMDAwMDN1cGZ6Y3d4dGl6MSJ9.JZaRAfZOZfAnU2EAuybfsg"
     };
@@ -32,16 +24,16 @@ class DropdownComponent extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
     var selectedSchoolObj = this.options.filter(function(item) {
       return item['School Name'] == event.target.value
     });
+    this.setState({value:selectedSchoolObj[0]});
+    // this.state = selectedSchoolObj[0]
+    // this.col=selectedSchoolObj[0]['School Name']
+    // console.log('after set',this.state)
     var latitude = selectedSchoolObj[0]['Latitude'];
     var logitude = selectedSchoolObj[0]['Longitude'];
 
-    this.props.updateProps({
-      returnCoordinates: [latitude, logitude]
-    })
     this.viewport.latitude = latitude;
     this.viewport.longitude = logitude;
   }
@@ -55,14 +47,17 @@ class DropdownComponent extends React.Component {
     return (
       <div>
         <label>
-          Pick a school and explore the location around! <select className='drop-down-style' value={this.state.value} onChange={this.handleChange}>
+          Pick a school and explore the location around! <select className='drop-down-style' onChange={this.handleChange}>
             {modified_options}
           </select>
         </label>
         <ReactMapGL
           {...this.viewport} 
-          onViewportChange={(viewport) => this.setState({viewport})}
-        />
+          onViewportChange={(viewport) => this.setState({viewport})}>
+          <Marker latitude={this.viewport.latitude} longitude={this.viewport.longitude} offsetTop={-10}>
+          <div className='label-wrap'>{this.state.value['School Name']}</div>
+        </Marker>
+          </ReactMapGL>
       </div>
     );
   }
