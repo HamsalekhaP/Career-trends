@@ -5,9 +5,9 @@
   background:"#666"
   /]
 
-A good college is synonymous with quality education and holistic development in students. Some key factors that influence aspiring college students in choosing a college are reputation of the college, availability of desired program, academic quality, job opportunities, career outcome, increase in earning power. Every year, a cohort of students are plagued with questions like which "University should I choose?", "Which major to pursue?", "Should I go out of state?", "How much loan should I take?", and what not! Here is a story of how a group of thick friends decide to tackle this daunting task with data and statistics!
+A good college is synonymous with quality education and holistic development in students. Some key factors that influence aspiring college students in choosing a college are reputation of the college, availability of desired program, academic quality, job opportunities, career outcome, increase in earning power. Every year, a cohort of students are plagued with questions like "Which university should I choose?", "Which major to pursue?", "Should I go out of state?", "How much loan should I take?", and what not! Here is a story of how a group of thick friends decide to tackle this daunting task with data and statistics!
 
-Rose, Dennis, Robert and Melissa, have just finished high school and are trying to pick universities based on their ambitions. They want the best they can get but they also want to stay connected, within driving distance. Robert and Dennis argue that they should consider colleges based on the region where it pays the best.To make this interesting, Melissa gets the Wall Street Journal data of three years and they explore the data to make their choices. 
+Rose, Dennis, Robert and Melissa, have just finished high school and are trying to pick universities based on their ambitions. They want the best they can get but they also want to stay connected, within driving distance. Robert and Dennis argue that they should consider colleges based on the region where it pays the best. To make this interesting, Melissa gets the Wall Street Journal data of three years and they explore the data to make their choices. 
 
 
 First, they want to locate the University and explore the location around it. Some prefer quiet college towns while some like the hustle and bustle of big cities, better still, some prefer to choose based on the geography of the place that influences weather.
@@ -25,16 +25,13 @@ First, they want to locate the University and explore the location around it. So
 Then, comes the major factor, how rewarding is the University in terms of earning power. 
 First they identify 5 major regions in the US and observe the salary distributions. 
 
-### EXPLAIN anaylsis here They observe that California and NE regions are the most rewarding???
-
-
 [data name:"region" source:"region.csv" /]
 
 ## Region - Median Starting Salaries
 
-// [Bar /]
-
 [StackBar /]
+
+As showed in the figure, California and Northeastern region have the highest starting salaries. 
 
 ### Add better transition here
 Since all of them have different career goals, they want to know how rewarding each profession is going to be. 

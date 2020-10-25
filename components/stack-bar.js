@@ -36,13 +36,13 @@ Western,44414.28571428572,78200.0,143823.529412`;
         const margin = ({
             top: 20 + colors.length * (legendBoxSize + legendPadding), 
             right: 20, 
-            bottom: 20, 
+            bottom: 0 , 
             left: 70
         });
         
 
         var width = 600;
-        var height = 500;
+        var height = 300;
         
         const groupName = "Region";
 
