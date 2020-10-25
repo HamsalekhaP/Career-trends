@@ -10,8 +10,11 @@ A good college is synonymous with quality education and holistic development in 
 Rose, Dennis, Robert and Melissa, have just finished high school and are trying to pick universities based on their ambitions. They want the best they can get but they also want to stay connected, within driving distance. Robert and Dennis argue that they should consider colleges based on the region where it pays the best. To make this interesting, Melissa gets the Wall Street Journal data of three years and they explore the data to make their choices. 
 
 
-First, they want to locate the University and explore the location around it. Some prefer quiet college towns while some like the hustle and bustle of big cities, better still, some prefer to choose based on the geography of the place that influences weather.
+First, they want to locate the University and explore the location around it. Some prefer quiet college towns while some like the hustle and bustle of big cities, better still, some prefer to choose based on the geography of the place that influences weather. From examining the visualization, Dennis says he will go to a college in California no matter what the major is. Rose wants to pursue finance and she says she will pick a Californian or Northeastern college as that region pay the best starting salaries. You can place your cursor on starting median or mid-career median or 90th percentile median bar to view that exclusive category salaries.
 
+
+Then, comes the major factor, how rewarding is the University in terms of earning power. 
+First, they identify 5 major regions in the US and observe the mean salary values. 
 [data name:"allschool" source:"salaries-by-college-type-location-interpolated-nodupl.csv"  /]
 
 [var name:"coordinates" /]
@@ -21,15 +24,12 @@ First, they want to locate the University and explore the location around it. So
 // [MapComponent  focusCoordinate: coordinates /]
 [br/]
 
-Then, comes the major factor, how rewarding is the University in terms of earning power. 
-First, they identify 5 major regions in the US and observe the mean salary values. 
-
 [data name:"region" source:"region.csv" /]
 
 On visualizing the mean salaries in each region for each category (starting, mid-career and mid-career 90th percentile), they notice that the California and Northeastern regions are more rewaring in every category. (Hover over any bar of a certain category to view all that specific category values exclusively.
 
 ## Region - Median Starting Salaries
-
+They look at various colleges in the map based visualization to see which colleges are located in California, Northeast region. Select a college in the drop-down menu and look at the location in the map.
 [StackBar /]
 
 As showed in the figure, California and Northeastern region have the highest starting salaries. 
@@ -40,7 +40,7 @@ Since all of them have different career goals, they want to know how rewarding e
 [hBar /]
 
 
-All of them disperse, convinced with their choices. Well, data is power afterall!
+Dennis is good at math and has won Silver medal in International Robotics Olympiad the previous year. He looks at the major and starting salary visualization and decides to choose Computer Engineering. Robert is interested in architecture. Even though it is not the highest paying major, he wants to pursue it. Melissa looks at the salaries by major data visualization and decides that she will pursue nursing as it is something she would like to pursue and high paying. All of them have finally decided on what they want to study in college and they would pick colleges in California and Northeast. The visualization of salaries data with region, major and college  has helped them choose majors and college region.
 
 
 // [Chart type:"line" data:somedata domain:`[0,2]` range:`[0,8]` /]
