@@ -51,7 +51,7 @@ class DropdownComponent extends React.Component {
           {...this.viewport} 
           onViewportChange={(viewport) => this.setState({viewport})}>
           <Marker latitude={this.viewport.latitude} longitude={this.viewport.longitude}>
-          <img src="./static/images/pop.svg" width='20' height='20'/>
+          <img src="./data/pop.svg" width='20' height='20'/>
           <div className='label-wrap'>{this.state.value['School Name']}</div>
         </Marker>
           </ReactMapGL>
